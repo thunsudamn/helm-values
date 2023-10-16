@@ -18,14 +18,14 @@ resources:
 
 ingress:
   enabled: true
-    annotations:
+  annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     meta.helm.sh/release-name: mb-poc-helm                                                                                                                                                         
     meta.helm.sh/release-namespace: feature-poc
 
-  ingressClassName: nginx
+  className: nginx
   hosts:
     - host: testmyapp.io
       paths:
