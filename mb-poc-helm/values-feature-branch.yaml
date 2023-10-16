@@ -28,6 +28,7 @@ ingress:
   className: nginx
   hosts:
     - host: testmyapp.io
+      http:
       paths:
         - path: /mbpoc(/|$)(.*)
           pathType: Prefix
