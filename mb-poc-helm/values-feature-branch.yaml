@@ -25,12 +25,12 @@ ingress:
     meta.helm.sh/release-name: mb-poc-helm                                                                                                                                                         
     meta.helm.sh/release-namespace: feature-poc
 
-  ingressClassName: nginx
-  rules:
-  - host: testmyapp.io
-    http:
-      paths:
-      - path: /mbpoc(/|$)(.*)
-        pathType: Prefix
+  className: nginx
+  hosts:
+    - host: testsupapp.io  
+      http:
+        paths:
+          - path: /mbpoc
+            pathType: Prefix
       
   tls: []
