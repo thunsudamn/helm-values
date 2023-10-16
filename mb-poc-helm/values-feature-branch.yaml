@@ -24,13 +24,11 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     meta.helm.sh/release-name: mb-poc-helm                                                                                                                                                         
     meta.helm.sh/release-namespace: feature-poc
-
-  className: nginx
+  ingressClassName: nginx
   hosts:
-    - host: testsupapp.io  
-      http:
-        paths:
-          - path: /mbpoc
-            pathType: Prefix
+    - host: testmyapp.io
+      paths:
+        - path: /mbpoc(/|$)(.*)
+          pathType: Prefix
       
   tls: []
