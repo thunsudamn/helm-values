@@ -18,13 +18,17 @@ resources:
 
 ingress:
   enabled: true
-  annotations:
-    # kubernetes.io/ingress.class: addon-http-application-routing
-  kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    meta.helm.sh/release-name: mb-poc-helm                                                                                                                                                         
+    meta.helm.sh/release-namespace: feature-poc
+
+  ingressClassName: nginx
   hosts:
     - host: testmyapp.io
       paths:
-        - path: /
-          pathType: ImplementationSpecific
+        - path: /mbpoc(/|$)(.*)
+          pathType: Prefix
   tls: []
